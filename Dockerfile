@@ -25,6 +25,5 @@ RUN apk --no-cache add gcc ncurses-dev libc-dev readline-dev make \
     && apk del gcc ncurses-dev libc-dev readline-dev make
 
 COPY eastwood.sh /eastwood.sh
-COPY parse_lines.py /github/workspace/parse_lines.py
 
 ENTRYPOINT ["bash", "/eastwood.sh"]
