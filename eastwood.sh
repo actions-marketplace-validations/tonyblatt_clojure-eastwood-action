@@ -6,8 +6,6 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 eastwood_output="$(lein eastwood ${INPUT_EASTWOOD_FLAGS} | sed -e "s/ /-=-/g")"
 
-cd /home/app/clojure-eastwood-action
-
 python3 /home/app/clojure-eastwood-action/parse_lines.py $eastwood_output \
   | reviewdog \
       -efm="%f:%l:%c: %m" \
