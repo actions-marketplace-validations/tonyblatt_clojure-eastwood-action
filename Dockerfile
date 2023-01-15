@@ -24,6 +24,7 @@ RUN apk --no-cache add gcc ncurses-dev libc-dev readline-dev make \
     && rm -rf rlwrap-0.43 \
     && apk del gcc ncurses-dev libc-dev readline-dev make
 
+COPY . /home/app/clojure-eastwood-action
 COPY eastwood.sh /eastwood.sh
 
 ENTRYPOINT ["bash", "/eastwood.sh"]
