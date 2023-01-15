@@ -5,6 +5,10 @@ description: A simple GitHub Actions to lint Clojure Code with clj-eastwood
 
 author: Tony Blatt
 
+branding:
+  color: blue
+  icon: check-square
+
 runs:
   using: docker
   image: Dockerfile
