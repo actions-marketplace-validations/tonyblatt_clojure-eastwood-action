@@ -1,0 +1,48 @@
+
+# ref: https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions
+name: Clojure Eastwood Action
+description: A simple GitHub Actions to lint Clojure Code with clj-eastwood
+
+author: Tony Blatt
+
+runs:
+  using: docker
+  image: Dockerfile
+
+inputs:
+  github_token:
+    required: false
+    description: 'GITHUB_TOKEN.'
+    default: '${{ github.token }}'
+  level:
+    required: false
+    description: 'Report level for reviewdog [info,warning,error]'
+    default: 'error'
+  reporter:
+    required: false
+    description: |
+      Reporter of reviewdog command [github-pr-check,github-pr-review,github-check].
+      Default is github-pr-check.
+      github-pr-review can use Markdown and add a link to rule page in reviewdog reports.
+    default: 'github-pr-check'
+  filter_mode:
+    required: false
+    description: |
+      Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
+      Default is added.
+    default: 'added'
+  fail_on_error:
+    required: false
+    description: |
+      Exit code for reviewdog when errors are found [true,false]
+      Default is `false`.
+    default: 'false'
+  reviewdog_flags:
+    required: false
+    description: 'Additional reviewdog flags'
+    default: ''
+  eastwood_flags:
+    required: false
+    description: |
+      Additional Flags for eastwood.
+    default: ''
