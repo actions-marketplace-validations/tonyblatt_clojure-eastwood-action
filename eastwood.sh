@@ -8,7 +8,7 @@ eastwood_output="$(lein eastwood ${INPUT_EASTWOOD_FLAGS} | sed -e "s/ /-=-/g")"
 
 cd /home/app/clojure-eastwood-action
 
-python3 parse_lines.py $eastwood_output \
+python3 /home/app/clojure-eastwood-action/parse_lines.py $eastwood_output \
   | reviewdog \
       -efm="%f:%l:%c: %m" \
       -name="clj-eastwood" \
